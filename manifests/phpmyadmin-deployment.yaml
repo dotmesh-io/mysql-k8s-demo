@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: mysql-k8s-demo
+  name: phpmyadmin
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+        - name: phpmyadmin
+          image: phpmyadmin/phpmyadmin
+          env:
+            - name: PMA_HOST
+              value: mysql
+            - name: PMA_USER
+              value: root
+            - name: PMA_PASSWORD
+              value: apples

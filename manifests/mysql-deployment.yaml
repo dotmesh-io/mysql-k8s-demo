@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: mysql-k8s-demo
+  name: mysql
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      volumes:
+        - name: mysql-storage
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+      containers:
+        - name: mysql
+          image: mysql:5.6
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: apples
+          volumeMounts:
+            - mountPath: "/var/lib/mysql"
+              name: mysql-storage

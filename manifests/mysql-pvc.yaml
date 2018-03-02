@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  namespace: mysql-k8s-demo
+  name: mysql-pvc
+  annotations:
+    dotmeshNamespace: admin
+    dotmeshName: mysql-pvc
+spec:
+  storageClassName: dotmesh
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: mysql-k8s-demo
+  name: loader
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: loader
+    spec:
+      containers:
+        - name: loader
+          image: quay.io/dotmesh/mysql-k8s-demo-loader:latest
+          
