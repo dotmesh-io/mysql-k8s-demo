@@ -13,4 +13,5 @@ spec:
       containers:
         - name: loader
           image: quay.io/dotmesh/mysql-k8s-demo-loader:latest
+          imagePullPolicy: Always
           

@@ -5,7 +5,7 @@ metadata:
   name: mysql-pvc
   annotations:
     dotmeshNamespace: admin
-    dotmeshName: mysql-pvc
+    dotmeshName: mysql-dot
 spec:
   storageClassName: dotmesh
   accessModes:
